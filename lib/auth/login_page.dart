@@ -37,20 +37,17 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .06,
                 ),
-                SizedBox(
-                  height: 70,
+                const SizedBox(
+                  height: 80,
                 ),
                 Image.asset(
                   'assets/logo.png',
                   // height: 180, // Adjust the height as needed
-                  width: 230, // Set width to occupy the entire available space
+                  width: 250, // Set width to occupy the entire available space
                   alignment: Alignment.center,
                 ),
                 const SizedBox(
                   height: 50,
-                ),
-                const SizedBox(
-                  height: 40,
                 ),
                 TextFormField(
                   controller: emailController,
@@ -62,7 +59,8 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   decoration: InputDecoration(
                     hintText: 'Email',
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                    hintStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 14),
                     prefixIcon: Icon(
                       Icons.email_outlined,
                       color: Colorz.appBarColor,
@@ -70,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 14,
+                  height: 20,
                 ),
                 TextFormField(
                   controller: passwordController,
@@ -102,24 +100,24 @@ class _LoginPageState extends State<LoginPage> {
                           pageBuilder: (c, a1, a2) => ForgotPasswordPage(),
                           transitionsBuilder: (c, anim, a2, child) =>
                               FadeTransition(opacity: anim, child: child),
-                          transitionDuration:
-                              const Duration(milliseconds: 0),
+                          transitionDuration: const Duration(milliseconds: 0),
                         ),
                       );
                     },
-                    child: Text('Forget Password?',
+                    child: const Text('Forget Password?',
                         style: TextStyle(color: Colors.blue)),
                   ),
                 ),
                 const SizedBox(
-                  height: 14,
+                  height: 20,
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 60,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, backgroundColor: Color.fromARGB(255, 20, 98, 162),
+                      foregroundColor: Colors.white,
+                      backgroundColor: Color.fromARGB(255, 20, 98, 162),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -131,11 +129,11 @@ class _LoginPageState extends State<LoginPage> {
                             await _handleLogin();
                           },
                     child: _loginInProgress
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             valueColor:
                                 AlwaysStoppedAnimation<Color>(Colors.white),
                           )
-                        : Text(
+                        : const Text(
                             'Log in',
                             style: TextStyle(fontSize: 16),
                           ),
@@ -169,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           );
                         },
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w700,
                         fontSize: 15,
@@ -202,17 +200,16 @@ class _LoginPageState extends State<LoginPage> {
 
         if (user != null) {
           // Check if the email is verified
-if (user.emailVerified) {
-  // Email is verified, navigate to the home page and reset the navigation history
-  Navigator.pushAndRemoveUntil(
-    context,
-    MaterialPageRoute(
-      builder: (context) => Home(),
-    ),
-    (route) => false, // This will remove all the routes until the new route is pushed
-  );
-
-
+          if (user.emailVerified) {
+            // Email is verified, navigate to the home page and reset the navigation history
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Home(),
+              ),
+              (route) =>
+                  false, // This will remove all the routes until the new route is pushed
+            );
           } else {
             // Email not verified, navigate to the verification page
             Navigator.pushReplacement(
@@ -224,11 +221,9 @@ if (user.emailVerified) {
           }
         } else {
           // Handle login failure
-          print("Login failed");
         }
       } catch (e) {
         // Handle login error
-        print("Error during login: $e");
       } finally {
         setState(() {
           _loginInProgress = false;

@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Image.asset(
               'assets/logo.png',
               // width: 150,
-              height: 110,
+              height: 230,
             ),
             // SizedBox(height: 20),
             // // Add animated text

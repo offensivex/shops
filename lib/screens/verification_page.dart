@@ -8,59 +8,60 @@ class VerificationSentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colorz.pageBackgroundColor,
+      backgroundColor: Colorz.containerBackgroundColor,
       body: Center(
         child: Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               horizontal: 0), // Adjust the horizontal padding
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
-                padding: EdgeInsets.all(20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 50),
                 decoration: BoxDecoration(
                   color: Colorz
-                      .containerBackgroundColor, // Set your desired background color
+                      .pageBackgroundColor, // Set your desired background color
                   borderRadius: BorderRadius.circular(
                       10), // Set your desired border radius
                 ),
                 child: Column(
                   children: [
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Image.asset(
                       'assets/logo.png',
                       // width: 150,
                       height: 150,
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Text(
-                      'Verification email has been sent.',
+                      'Verification email has',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colorz.textColor,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
-                      'Verify to continue.',
+                      'been sent.',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colorz.textColor,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Icon(
                       Icons.email_outlined,
-                      size: 80,
+                      size: 50,
                       color:
                           Colorz.appBarColor, // Replace with your desired color
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               RichText(
                 text: TextSpan(children: [
                   TextSpan(
