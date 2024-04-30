@@ -1,5 +1,6 @@
 import '../auth/forgot_password.dart';
 import '../screens/home.dart';
+import '../screens/manageshops.dart';
 import '../screens/verification_page.dart';
 import '../utils/color.dart';
 import 'package:flutter/material.dart';
@@ -160,6 +161,42 @@ class _LoginPageState extends State<LoginPage> {
                             context,
                             PageRouteBuilder(
                               pageBuilder: (c, a1, a2) => const SignUpPage(),
+                              transitionsBuilder: (c, anim, a2, child) =>
+                                  FadeTransition(opacity: anim, child: child),
+                              transitionDuration:
+                                  const Duration(milliseconds: 0),
+                            ),
+                          );
+                        },
+                      style: const TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ]),
+                ),
+              const SizedBox(
+                  height: 30,
+                ),
+                RichText(
+                  text: TextSpan(children: [
+                    const TextSpan(
+                      text: "Admin? ",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'LogIn',
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (c, a1, a2) => ManageShopPage(),
                               transitionsBuilder: (c, anim, a2, child) =>
                                   FadeTransition(opacity: anim, child: child),
                               transitionDuration:

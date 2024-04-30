@@ -220,7 +220,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 height: 60,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white, backgroundColor: Color.fromARGB(255, 20, 98, 162),
+                    foregroundColor: Colors.white,
+                    backgroundColor: Color.fromARGB(255, 20, 98, 162),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -344,7 +345,7 @@ class _SignUpPageState extends State<SignUpPage> {
         bool verificationSuccessful = await waitForEmailVerification(user);
 
         if (mounted) {
-if (verificationSuccessful) {
+          if (verificationSuccessful) {
             // Navigate to the home page and reset the navigation history
             Navigator.pushAndRemoveUntil(
               context,
@@ -354,8 +355,7 @@ if (verificationSuccessful) {
               (route) =>
                   false, // This will remove all the routes until the new route is pushed
             );
-          }
- else {
+          } else {
             // Verification not successful after 20 minutes, navigate to login
             Navigator.pushReplacement(
               context,

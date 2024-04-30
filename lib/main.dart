@@ -1,9 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:shops/auth/login_page.dart';
 import 'firebase_options.dart';
-import 'screens/splash_screen.dart';
-import 'screens/verification_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: VerificationSentPage(),
+      home: LoginPage(),
     );
   }
 }
